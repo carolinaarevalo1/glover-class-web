@@ -299,13 +299,21 @@
   .curso-gallery-featured .cap strong{
     font-family:"Fraunces",serif; font-weight:600; font-size:1.15rem; display:block;
   }
-  .curso-gallery-strip{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
-  .curso-gallery-strip img{
-    height:230px; width:auto; max-width:100%;
-    border-radius:14px; box-shadow:var(--shadow); display:block;
+  .curso-gallery-strip{ display:flex; flex-direction:column; gap:14px; }
+  .curso-gallery-strip img.wide{
+    width:100%; height:auto; display:block;
+    border-radius:16px; box-shadow:var(--shadow);
   }
-  @media (max-width:760px){ .curso-gallery-strip img{ height:180px; } }
-  @media (max-width:480px){ .curso-gallery-strip img{ height:140px; } }
+  .curso-gallery-pair{ display:flex; gap:14px; justify-content:center; }
+  .curso-gallery-pair img{
+    height:320px; width:auto; max-width:100%;
+    border-radius:16px; box-shadow:var(--shadow); display:block;
+  }
+  @media (max-width:760px){ .curso-gallery-pair img{ height:220px; } }
+  @media (max-width:480px){
+    .curso-gallery-pair{ flex-direction:column; align-items:center; }
+    .curso-gallery-pair img{ height:auto; width:100%; }
+  }
 
   /* ---------- Diferenciador ---------- */
   .diff{ text-align:center; }
@@ -615,11 +623,11 @@
         </div>
       </div>
       <div class="curso-gallery-strip">
-        <img src="images/galeria/galeria-06.jpg" alt="Grupo de alumnas graduadas de La Glover Class con camisetas &quot;Yo soy Glover&quot;" loading="lazy">
-        <img src="images/galeria/galeria-04.jpg" alt="Alumnas trabajando con materiales de decoración durante la clase" loading="lazy">
-        <img src="images/galeria/galeria-09.jpg" alt="Globo burbuja personalizado con nombre, hecho por una alumna" loading="lazy">
-        <img src="images/galeria/galeria-07.jpg" alt="Decoración de globos azul y dorada para bautizo junto al equipo Glover" loading="lazy">
-        <img src="images/galeria/galeria-08.jpg" alt="Topper personalizado de La Glover Class con la frase &quot;Si no hay lugar para ti, créalo&quot;" loading="lazy">
+        <img class="wide" src="images/galeria/galeria-04.jpg" alt="Alumnas trabajando con materiales de decoración durante la clase" loading="lazy">
+        <div class="curso-gallery-pair">
+          <img src="images/galeria/galeria-06.jpg" alt="Grupo de alumnas graduadas de La Glover Class con camisetas &quot;Yo soy Glover&quot;" loading="lazy">
+          <img src="images/galeria/galeria-07.jpg" alt="Decoración de globos azul y dorada para bautizo junto al equipo Glover" loading="lazy">
+        </div>
       </div>
     </div>
 
