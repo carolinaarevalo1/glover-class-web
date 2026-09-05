@@ -313,12 +313,19 @@
 
   /* ---------- Diferenciador ---------- */
   .diff{ text-align:center; padding:56px 0; }
-  .diff h2{ font-size:clamp(1.5rem,3.6vw,2.2rem); max-width:14em; margin:0 auto .5em; }
+  .diff h2{ font-size:clamp(1rem,2.4vw,1.5rem); white-space:nowrap; margin:0 auto .5em; }
+  @media (max-width:600px){ .diff h2{ white-space:normal; font-size:1.1rem; } }
   .diff-grid{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:32px; text-align:left;
+    display:grid; grid-template-columns:repeat(6,1fr); gap:18px; margin-top:32px; text-align:left;
     max-width:46em; margin-left:auto; margin-right:auto;
   }
-  @media (max-width:820px){ .diff-grid{ grid-template-columns:repeat(2,1fr); } }
+  .diff-item{ grid-column:span 2; }
+  .diff-item:nth-child(4){ grid-column:2 / 4; }
+  .diff-item:nth-child(5){ grid-column:4 / 6; }
+  @media (max-width:820px){
+    .diff-grid{ grid-template-columns:repeat(2,1fr); }
+    .diff-item, .diff-item:nth-child(4), .diff-item:nth-child(5){ grid-column:auto; }
+  }
   .diff-item p{ font-size:0.86rem; color:rgba(255,255,255,0.75); margin:0; }
 
   /* ---------- Qué te llevas ---------- */
@@ -692,7 +699,7 @@
 <section class="band-dark diff">
   <div class="wrap-narrow">
     <p class="eyebrow">El gran diferenciador</p>
-    <h2>No solo te enseñamos a hacerlo.<br>Te enseñamos a entenderlo.</h2>
+    <h2>No solo te enseñamos a hacerlo. Te enseñamos a entenderlo.</h2>
     <p style="max-width:36em; margin:0 auto; color:rgba(255,255,255,0.78);">En La Glover Class no queremos que memorices pasos para repetir decoraciones. Queremos que entiendas por qué funcionan.</p>
     <div class="diff-grid">
       <div class="diff-item"><p>Por qué utilizamos determinados materiales y cómo combinar colores</p></div>
