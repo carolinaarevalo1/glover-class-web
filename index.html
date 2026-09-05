@@ -283,6 +283,30 @@
     font-size:1.15rem; color:var(--ink);
   }
 
+  /* ---------- Galería de cursos ---------- */
+  .curso-gallery{ margin:44px 0 56px; }
+  .curso-gallery-featured{
+    position:relative; border-radius:22px; overflow:hidden; box-shadow:var(--shadow);
+    margin-bottom:16px;
+  }
+  .curso-gallery-featured img{ width:100%; height:auto; display:block; }
+  .curso-gallery-featured .cap{
+    position:absolute; left:0; right:0; bottom:0;
+    background:linear-gradient(0deg, rgba(20,14,18,0.78) 0%, rgba(20,14,18,0.35) 60%, transparent 100%);
+    color:#fff; padding:36px 24px 16px;
+  }
+  .curso-gallery-featured .cap .eyebrow{ color:var(--gold-soft); margin-bottom:4px; }
+  .curso-gallery-featured .cap strong{
+    font-family:"Fraunces",serif; font-weight:600; font-size:1.15rem; display:block;
+  }
+  .curso-gallery-strip{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+  .curso-gallery-strip img{
+    height:230px; width:auto; max-width:100%;
+    border-radius:14px; box-shadow:var(--shadow); display:block;
+  }
+  @media (max-width:760px){ .curso-gallery-strip img{ height:180px; } }
+  @media (max-width:480px){ .curso-gallery-strip img{ height:140px; } }
+
   /* ---------- Diferenciador ---------- */
   .diff{ text-align:center; }
   .diff h2{ font-size:clamp(2rem,5vw,3.1rem); max-width:14em; margin:0 auto .5em; }
@@ -580,6 +604,23 @@
       <p class="eyebrow">El programa</p>
       <h2>Los 3 cursos, uno por uno</h2>
       <p>Mismo fin de semana, tres formaciones distintas. Este es exactamente lo que se trabaja en cada una.</p>
+    </div>
+
+    <div class="curso-gallery">
+      <div class="curso-gallery-featured">
+        <img src="images/galeria/galeria-05.jpg" alt="Carolina explicando la teoría de medidas en la pizarra de La Glover Class, rodeada de alumnas" loading="lazy">
+        <div class="cap">
+          <p class="eyebrow">Así es una clase real</p>
+          <strong>Teoría, práctica y mucho ambiente — edición tras edición.</strong>
+        </div>
+      </div>
+      <div class="curso-gallery-strip">
+        <img src="images/galeria/galeria-06.jpg" alt="Grupo de alumnas graduadas de La Glover Class con camisetas &quot;Yo soy Glover&quot;" loading="lazy">
+        <img src="images/galeria/galeria-04.jpg" alt="Alumnas trabajando con materiales de decoración durante la clase" loading="lazy">
+        <img src="images/galeria/galeria-09.jpg" alt="Globo burbuja personalizado con nombre, hecho por una alumna" loading="lazy">
+        <img src="images/galeria/galeria-07.jpg" alt="Decoración de globos azul y dorada para bautizo junto al equipo Glover" loading="lazy">
+        <img src="images/galeria/galeria-08.jpg" alt="Topper personalizado de La Glover Class con la frase &quot;Si no hay lugar para ti, créalo&quot;" loading="lazy">
+      </div>
     </div>
 
     <div class="curso">
