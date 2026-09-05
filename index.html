@@ -312,7 +312,21 @@
   @media (max-width:480px){ .curso-gallery-strip img{ height:150px; } }
 
   /* ---------- Diferenciador ---------- */
-  .diff{ text-align:center; padding:56px 0; }
+  .diff{ text-align:center; padding:56px 0; position:relative; overflow:hidden; }
+  .diff-bg{
+    position:absolute; inset:-20px;
+    background-image:url('images/galeria/diferenciador.jpg');
+    background-size:cover; background-position:center;
+    filter:blur(22px) saturate(1.1);
+    transform:scale(1.15);
+    z-index:0;
+  }
+  .diff-scrim{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(75,143,160,0.88) 0%, rgba(60,120,135,0.92) 100%);
+    z-index:1;
+  }
+  .diff .wrap-narrow{ position:relative; z-index:2; }
   .diff h2{ font-size:clamp(1rem,2.4vw,1.5rem); white-space:nowrap; margin:0 auto .5em; }
   @media (max-width:600px){ .diff h2{ white-space:normal; font-size:1.1rem; } }
   .diff-grid{
@@ -697,6 +711,8 @@
 </section>
 
 <section class="band-dark diff">
+  <div class="diff-bg"></div>
+  <div class="diff-scrim"></div>
   <div class="wrap-narrow">
     <p class="eyebrow">El gran diferenciador</p>
     <h2>No solo te enseñamos a hacerlo. Te enseñamos a entenderlo.</h2>
