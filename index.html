@@ -304,8 +304,6 @@
     font-family:"Fraunces",serif; font-weight:600; font-size:1.15rem; display:block;
   }
   .curso-gallery-strip{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
-  #miedos .curso-gallery-strip img{ height:140px; }
-  @media (max-width:600px){ #miedos .curso-gallery-strip img{ height:100px; } }
   .curso-gallery-strip img{
     height:260px; width:auto; max-width:100%;
     border-radius:16px; box-shadow:var(--shadow); display:block;
@@ -505,7 +503,16 @@
   #miedos summary{ padding:11px 16px; font-size:0.88rem; gap:10px; }
   #miedos summary::after{ font-size:1.1rem; }
   #miedos details p{ padding:0 16px 14px; font-size:0.85rem; }
-  #miedos .faq-list{ gap:8px; max-width:34em; margin:0 auto; }
+  #miedos .miedos-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;
+    max-width:56em; margin:44px auto 0;
+  }
+  #miedos .miedos-photos{ display:flex; flex-direction:column; gap:14px; }
+  #miedos .miedos-photos img{ width:100%; height:auto; display:block; border-radius:14px; box-shadow:var(--shadow); }
+  #miedos .faq-list{ gap:8px; }
+  @media (max-width:760px){
+    #miedos .miedos-grid{ grid-template-columns:1fr; }
+  }
   details{
     background:var(--card); border:1px solid var(--line); border-radius:16px; padding:0;
     overflow:hidden;
@@ -826,23 +833,25 @@
 </section>
 
 <section id="miedos">
-  <div class="wrap-narrow">
+  <div class="wrap">
     <div class="section-head center">
       <p class="eyebrow">Hablemos claro</p>
       <h2>Sabemos lo que estás pensando</h2>
       <p>Si algo de esto te ha pasado por la cabeza, no eres la única — y prefiero contestarte aquí antes que dejar que te frene.</p>
     </div>
-    <div class="curso-gallery-strip" style="margin-bottom:40px;">
-      <img src="images/galeria/comunidad/comunidad-01.jpg" alt="Grupo de Glovers graduadas mostrando sus certificados" loading="lazy">
-      <img src="images/galeria/comunidad/comunidad-02.jpg" alt="Grupo de Glovers graduadas en edición temática de Halloween" loading="lazy">
-      <img src="images/galeria/comunidad/comunidad-03.jpg" alt="Grupo de Glovers graduadas en edición temática de Navidad" loading="lazy">
-    </div>
-    <div class="faq-list">
-      <details open><summary>"¿Y si no soy capaz?"</summary><p>Empiezas exactamente igual que todas: sin saber. Te decimos qué hacer, cómo hacerlo y en qué orden — no llegas sola a ninguna decisión.</p></details>
-      <details><summary>"No tengo tiempo para hacer un curso."</summary><p>Por eso La Glover Class cabe en un solo fin de semana — no en meses de tutoriales sueltos que empiezas y nunca terminas de ver.</p></details>
-      <details><summary>"¿Y si gasto el dinero y luego no lo aprovecho?"</summary><p>Sales el mismo día con una decoración hecha por ti, con tus manos. Y con la lista exacta de qué comprar después — nada de material a ciegas que acabe sin usar.</p></details>
-      <details><summary>"¿Y si soy la única que no sabe nada?"</summary><p>Nadie llega sabiendo. En 29 ediciones, la mayoría de Glovers empezó exactamente donde estás tú ahora mismo, leyendo esto.</p></details>
-      <details><summary>"¿Podré conseguir clientes si quiero emprender?"</summary><p>Por eso el Curso 03 no es solo técnica: es estrategia de venta, presupuestos y 4 meses de asesoría después, para cuando llegue el momento de cobrar por ello.</p></details>
+    <div class="miedos-grid">
+      <div class="miedos-photos">
+        <img src="images/galeria/comunidad/comunidad-01.jpg" alt="Grupo de Glovers graduadas mostrando sus certificados" loading="lazy">
+        <img src="images/galeria/comunidad/comunidad-02.jpg" alt="Grupo de Glovers graduadas en edición temática de Halloween" loading="lazy">
+        <img src="images/galeria/comunidad/comunidad-03.jpg" alt="Grupo de Glovers graduadas en edición temática de Navidad" loading="lazy">
+      </div>
+      <div class="faq-list">
+        <details open><summary>"¿Y si no soy capaz?"</summary><p>Empiezas exactamente igual que todas: sin saber. Te decimos qué hacer, cómo hacerlo y en qué orden — no llegas sola a ninguna decisión.</p></details>
+        <details><summary>"No tengo tiempo para hacer un curso."</summary><p>Por eso La Glover Class cabe en un solo fin de semana — no en meses de tutoriales sueltos que empiezas y nunca terminas de ver.</p></details>
+        <details><summary>"¿Y si gasto el dinero y luego no lo aprovecho?"</summary><p>Sales el mismo día con una decoración hecha por ti, con tus manos. Y con la lista exacta de qué comprar después — nada de material a ciegas que acabe sin usar.</p></details>
+        <details><summary>"¿Y si soy la única que no sabe nada?"</summary><p>Nadie llega sabiendo. En 29 ediciones, la mayoría de Glovers empezó exactamente donde estás tú ahora mismo, leyendo esto.</p></details>
+        <details><summary>"¿Podré conseguir clientes si quiero emprender?"</summary><p>Por eso el Curso 03 no es solo técnica: es estrategia de venta, presupuestos y 4 meses de asesoría después, para cuando llegue el momento de cobrar por ello.</p></details>
+      </div>
     </div>
   </div>
 </section>
