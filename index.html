@@ -219,8 +219,14 @@
   @media (max-width:800px){ .modules-preview{ grid-template-columns:1fr; } }
   .mp-card{
     background:var(--card); border:1px solid var(--line); border-radius:20px;
-    padding:26px; box-shadow:var(--shadow);
+    overflow:hidden; box-shadow:var(--shadow);
+    display:flex; flex-direction:column;
   }
+  .mp-photo{ width:100%; aspect-ratio:4/3; overflow:hidden; }
+  .mp-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .mp-photo.zoom-tight{ aspect-ratio:16/10; }
+  .mp-photo.zoom-tight img{ object-position:center 25%; }
+  .mp-card-body{ padding:26px; }
   .mp-num{ font-family:"Fraunces",serif; font-size:2.2rem; color:var(--gold); font-weight:600; }
   .mp-card h4{ font-size:1.1rem; margin:.3em 0 .3em; }
   .mp-card p{ font-size:0.92rem; color:var(--ink-soft); margin:0; }
@@ -538,19 +544,28 @@
     </div>
     <div class="modules-preview">
       <div class="mp-card">
-        <span class="mp-num">01</span>
-        <h4>Decoración con globos</h4>
-        <p>Sábado mañana — la base técnica: color, estructuras, arcos y guirnaldas.</p>
+        <div class="mp-photo"><img src="images/cursos/curso-01.jpg" alt="Alumnas de La Glover Class junto a su decoración de globos" loading="lazy"></div>
+        <div class="mp-card-body">
+          <span class="mp-num">01</span>
+          <h4>Decoración con globos</h4>
+          <p>Sábado mañana — la base técnica: color, estructuras, arcos y guirnaldas.</p>
+        </div>
       </div>
       <div class="mp-card">
-        <span class="mp-num">02</span>
-        <h4>Arreglos y composiciones</h4>
-        <p>Sábado tarde — donde entra la creatividad: columnas, flores y bouquets.</p>
+        <div class="mp-photo"><img src="images/cursos/curso-02.jpg" alt="Arco de globos en corazón con detalles personalizados" loading="lazy"></div>
+        <div class="mp-card-body">
+          <span class="mp-num">02</span>
+          <h4>Arreglos y composiciones</h4>
+          <p>Sábado tarde — donde entra la creatividad: columnas, flores y bouquets.</p>
+        </div>
       </div>
       <div class="mp-card">
-        <span class="mp-num">03</span>
-        <h4>Detalles de lujo y emprendimiento</h4>
-        <p>Domingo, día completo — la parte que casi nadie enseña: convertirlo en negocio.</p>
+        <div class="mp-photo zoom-tight"><img src="images/cursos/curso-03.jpg" alt="Alumnas de La Glover Class junto a un arco de globos lila para bautizo" loading="lazy"></div>
+        <div class="mp-card-body">
+          <span class="mp-num">03</span>
+          <h4>Detalles de lujo y emprendimiento</h4>
+          <p>Domingo, día completo — la parte que casi nadie enseña: convertirlo en negocio.</p>
+        </div>
       </div>
     </div>
     <p class="center" style="margin-top:34px; color:var(--ink-soft); font-size:0.96rem;">
