@@ -533,9 +533,23 @@
   /* ---------- Cierre / Footer ---------- */
   .closing{
     background:var(--ink); color:#fff; text-align:center; padding:110px 0;
+    position:relative; overflow:hidden;
   }
-  .closing h2{ color:#fff; font-size:clamp(2.2rem,6vw,3.6rem); max-width:16em; margin:0 auto 0.3em; }
-  .closing p{ color:rgba(255,255,255,0.75); font-size:1.1rem; margin-bottom:2em; }
+  .closing-bg{
+    position:absolute; inset:0;
+    background-image:url('images/galeria/comunidad/comunidad-03.jpg');
+    background-size:cover; background-position:center 30%;
+    z-index:0;
+  }
+  .closing-scrim{
+    position:absolute; inset:-40px;
+    background:linear-gradient(180deg, rgba(36,22,32,0.9) 0%, rgba(36,22,32,0.55) 45%, rgba(36,22,32,0.6) 60%, rgba(27,17,22,0.92) 100%);
+    filter:blur(30px);
+    z-index:1;
+  }
+  .closing .wrap-narrow{ position:relative; z-index:2; }
+  .closing h2{ color:#fff; font-size:clamp(2.2rem,6vw,3.6rem); max-width:16em; margin:0 auto 0.3em; text-shadow:0 2px 10px rgba(0,0,0,0.6); }
+  .closing p{ color:rgba(255,255,255,0.85); font-size:1.1rem; margin-bottom:2em; text-shadow:0 1px 6px rgba(0,0,0,0.55); }
   footer{
     background:var(--paper-raise); padding:44px 0 26px; border-top:1px solid var(--line);
   }
@@ -1051,6 +1065,8 @@
 </section>
 
 <section class="closing">
+  <div class="closing-bg"></div>
+  <div class="closing-scrim"></div>
   <div class="wrap-narrow">
     <p class="eyebrow" style="color:var(--gold-soft);">¿Nos vemos en Ourense?</p>
     <h2>Si no hay lugar para ti, créalo con globos.</h2>
