@@ -417,10 +417,8 @@
   .stat{ }
   .stat .num{ font-family:"Fraunces",serif; font-size:2.6rem; font-weight:600; color:var(--raspberry); display:block; }
   .stat .lbl{ font-size:0.85rem; color:var(--ink-soft); }
-  .testimonios-layout{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:start; margin-top:40px; }
-  @media (max-width:900px){ .testimonios-layout{ grid-template-columns:1fr; } }
-  .testimonios-layout .gallery-strip{ margin-top:0; }
-  .testi-grid{ display:grid; grid-template-columns:1fr; gap:22px; }
+  .testi-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  @media (max-width:760px){ .testi-grid{ grid-template-columns:1fr; } }
   .testi{
     background:var(--card); border:1px solid var(--line); border-radius:20px; padding:26px;
     position:relative;
@@ -906,7 +904,6 @@
       <div class="stat"><span class="num">4</span><span class="lbl">meses de asesoría incluida</span></div>
     </div>
 
-    <div class="testimonios-layout">
       <div class="gallery-strip">
         <img src="images/galeria/casos/caso-01.jpg" alt="Decoración temática de carreras hecha por una alumna Glover" loading="lazy">
         <img src="images/galeria/casos/caso-02.jpg" alt="Arreglo floral de globos blanco, morado y dorado hecho por una alumna Glover" loading="lazy">
@@ -920,7 +917,7 @@
         <img class="gallery-strip-featured" src="images/galeria/casos/caso-10.jpg" alt="Salón completo decorado con globos rosas y dorados para un bautizo" loading="lazy">
       </div>
 
-      <div class="testi-grid">
+      <div class="testi-grid" style="margin-top:40px;">
         <div class="testi">
           <p>"Yo hago las decoraciones en mi restaurante. Gracias a Carolina por abrirme nuevos horizontes. Realicé el curso de Glovers y de iniciación a cameo en 2 fines de semana, y este va siendo el resultado. Poco a poco se irá cogiendo práctica y saliendo cositas nuevas."</p>
           <div class="testi-who">
@@ -950,7 +947,6 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 </section>
 
