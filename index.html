@@ -249,7 +249,7 @@
   .curso.rev{ grid-template-columns:0.95fr 1.05fr; }
   .curso.rev .curso-media{ order:-1; }
   @media (max-width:860px){
-    .curso, .curso.rev{ grid-template-columns:1fr; gap:28px; }
+    .curso, .curso.rev, .curso.curso-media-boost, .curso.curso-media-boost-r{ grid-template-columns:1fr; gap:28px; }
     .curso.rev .curso-media{ order:0; }
   }
   .curso-media{
@@ -261,6 +261,10 @@
   .curso-media-wide{ aspect-ratio:3/2; }
   .curso.curso-media-boost{ grid-template-columns:1.2fr 0.8fr; }
   .curso.curso-media-boost-r{ grid-template-columns:0.8fr 1.2fr; }
+  @media (max-width:860px){
+    .curso.curso-media-boost, .curso.curso-media-boost-r{ grid-template-columns:1fr; }
+    .curso-media-sm-mobile{ max-width:65%; margin:0 auto; }
+  }
   .curso-tag{
     display:inline-flex; align-items:center; gap:8px;
     font-family:"Caveat", cursive; font-weight:600; font-size:1.3rem;
@@ -729,7 +733,7 @@
         </ul>
         <p class="curso-quote">Porque saber inflar un globo no significa saber diseñar con él.</p>
       </div>
-      <div class="curso-media curso-media-wide"><img src="images/galeria/arreglos.jpg" alt="Alumnas de La Glover Class junto a una decoración de globos para primer cumpleaños" loading="lazy"></div>
+      <div class="curso-media curso-media-wide"><img src="images/galeria/arreglos.jpg" alt="Alumnas de La Glover Class junto a decoraciones de globos en edición de curso" loading="lazy"></div>
     </div>
 
     <div class="curso curso-media-boost-r">
@@ -749,7 +753,7 @@
           <li>Práctica: una flor modelada</li>
         </ul>
       </div>
-      <div class="curso-media curso-media-wide"><img src="images/galeria/curso-03.jpg" alt="Decoración temática de carreras con arco de globos azul y dorado para primer cumpleaños" loading="lazy"></div>
+      <div class="curso-media curso-media-wide curso-media-sm-mobile"><img src="images/galeria/curso-03.jpg" alt="Alumnas trabajando en equipo durante el curso de emprendimiento" loading="lazy"></div>
     </div>
 
     <div style="max-width:52em; margin:0 auto; text-align:center;">
