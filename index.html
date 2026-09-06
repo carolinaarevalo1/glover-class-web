@@ -500,13 +500,27 @@
   .reserva-card .altcontact{ margin-top:16px; font-size:0.86rem; color:var(--ink-soft); text-align:center; }
 
   /* ---------- FAQ ---------- */
-  .faq-photo{
-    position:absolute; width:190px; border-radius:18px; box-shadow:var(--shadow);
-    display:none; object-fit:cover;
+  .faq-layout{
+    display:grid; grid-template-columns:1fr; gap:16px;
+    max-width:760px; margin:0 auto;
   }
-  .faq-photo-tl{ top:0; left:0; }
-  .faq-photo-br{ bottom:0; right:0; }
-  @media (min-width:1020px){ .faq-photo{ display:block; } }
+  .faq-photo{
+    width:100%; border-radius:16px; box-shadow:var(--shadow);
+    display:none; object-fit:cover; aspect-ratio:3/4;
+  }
+  .faq-photo-tl{ align-self:start; }
+  .faq-photo-br{ align-self:end; }
+  @media (min-width:900px){
+    .faq-layout{
+      grid-template-columns:150px 1fr 150px; gap:28px; max-width:980px; align-items:start;
+    }
+    .faq-photo{ display:block; }
+    .faq-photo-br{ align-self:end; }
+  }
+  #faq summary{ padding:14px 18px; font-size:0.92rem; border-radius:12px; }
+  #faq details{ border-radius:12px; }
+  #faq summary::after{ font-size:1.2rem; }
+  #faq details p{ padding:0 18px 16px; font-size:0.9rem; }
   .faq-list{ display:grid; gap:12px; }
   #miedos details{ border-radius:10px; }
   #miedos summary{ padding:11px 16px; font-size:0.88rem; gap:10px; }
@@ -1059,14 +1073,13 @@
 </section>
 
 <section id="faq">
-  <div class="wrap" style="position:relative;">
-    <img class="faq-photo faq-photo-tl" src="images/galeria/carol/carol-01.jpg" alt="Carolina Arévalo junto a una columna de globos de flores" loading="lazy">
-    <img class="faq-photo faq-photo-br" src="images/galeria/carol/carol-02.jpg" alt="Carolina Arévalo con su equipo en una decoración de globos rosa y dorada" loading="lazy">
-    <div class="wrap-narrow" style="padding:0;">
+  <div class="wrap">
     <div class="section-head center">
       <p class="eyebrow">Preguntas frecuentes</p>
       <h2>Antes de escribirme, quizá ya está aquí</h2>
     </div>
+    <div class="faq-layout">
+    <img class="faq-photo faq-photo-tl" src="images/galeria/carol/carol-01.jpg" alt="Carolina Arévalo junto a una columna de globos de flores" loading="lazy">
     <div class="faq-list">
       <details><summary>¿Necesito experiencia previa?<span></span></summary><p>No. La Glover Class está pensado para empezar desde cero, aunque nunca hayas tocado un globo.</p></details>
       <details><summary>¿Puedo hacer solamente uno de los cursos?</summary><p>Sí. Cada uno de los 3 cursos se puede reservar por separado.</p></details>
@@ -1078,6 +1091,7 @@
       <details><summary>¿Puedo empezar si no tengo negocio?</summary><p>Sí. De hecho, la mayoría de Glovers empiezan exactamente así — sin negocio, solo con ganas.</p></details>
       <details><summary>¿La formación sirve para emprender?</summary><p>Sí, especialmente a través del Curso 03 (Detalles de lujo y emprendimiento), donde trabajamos estrategia de venta, presupuestos y visión de negocio.</p></details>
     </div>
+    <img class="faq-photo faq-photo-br" src="images/galeria/carol/carol-02.jpg" alt="Carolina Arévalo con su equipo en una decoración de globos rosa y dorada" loading="lazy">
     </div>
   </div>
 </section>
