@@ -500,6 +500,13 @@
   .reserva-card .altcontact{ margin-top:16px; font-size:0.86rem; color:var(--ink-soft); text-align:center; }
 
   /* ---------- FAQ ---------- */
+  .faq-photo{
+    position:absolute; width:190px; border-radius:18px; box-shadow:var(--shadow);
+    display:none; object-fit:cover;
+  }
+  .faq-photo-tl{ top:0; left:0; }
+  .faq-photo-br{ bottom:0; right:0; }
+  @media (min-width:1020px){ .faq-photo{ display:block; } }
   .faq-list{ display:grid; gap:12px; }
   #miedos details{ border-radius:10px; }
   #miedos summary{ padding:11px 16px; font-size:0.88rem; gap:10px; }
@@ -1052,7 +1059,10 @@
 </section>
 
 <section id="faq">
-  <div class="wrap-narrow">
+  <div class="wrap" style="position:relative;">
+    <img class="faq-photo faq-photo-tl" src="images/galeria/carol/carol-01.jpg" alt="Carolina Arévalo junto a una columna de globos de flores" loading="lazy">
+    <img class="faq-photo faq-photo-br" src="images/galeria/carol/carol-02.jpg" alt="Carolina Arévalo con su equipo en una decoración de globos rosa y dorada" loading="lazy">
+    <div class="wrap-narrow" style="padding:0;">
     <div class="section-head center">
       <p class="eyebrow">Preguntas frecuentes</p>
       <h2>Antes de escribirme, quizá ya está aquí</h2>
@@ -1067,6 +1077,7 @@
       <details><summary>¿Tengo acompañamiento después del curso?</summary><p>Sí, 4 meses de asesoría para resolver dudas, más acceso permanente al grupo VIP de Glovers.</p></details>
       <details><summary>¿Puedo empezar si no tengo negocio?</summary><p>Sí. De hecho, la mayoría de Glovers empiezan exactamente así — sin negocio, solo con ganas.</p></details>
       <details><summary>¿La formación sirve para emprender?</summary><p>Sí, especialmente a través del Curso 03 (Detalles de lujo y emprendimiento), donde trabajamos estrategia de venta, presupuestos y visión de negocio.</p></details>
+    </div>
     </div>
   </div>
 </section>
