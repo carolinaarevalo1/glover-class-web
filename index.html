@@ -417,8 +417,10 @@
   .stat{ }
   .stat .num{ font-family:"Fraunces",serif; font-size:2.6rem; font-weight:600; color:var(--raspberry); display:block; }
   .stat .lbl{ font-size:0.85rem; color:var(--ink-soft); }
-  .testi-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
-  @media (max-width:760px){ .testi-grid{ grid-template-columns:1fr; } }
+  .testimonios-layout{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:start; margin-top:40px; }
+  @media (max-width:900px){ .testimonios-layout{ grid-template-columns:1fr; } }
+  .testimonios-layout .gallery-strip{ margin-top:0; }
+  .testi-grid{ display:grid; grid-template-columns:1fr; gap:22px; }
   .testi{
     background:var(--card); border:1px solid var(--line); border-radius:20px; padding:26px;
     position:relative;
@@ -904,48 +906,50 @@
       <div class="stat"><span class="num">4</span><span class="lbl">meses de asesoría incluida</span></div>
     </div>
 
-    <div class="testi-grid">
-      <div class="testi">
-        <p>"Yo hago las decoraciones en mi restaurante. Gracias a Carolina por abrirme nuevos horizontes. Realicé el curso de Glovers y de iniciación a cameo en 2 fines de semana, y este va siendo el resultado. Poco a poco se irá cogiendo práctica y saliendo cositas nuevas."</p>
-        <div class="testi-who">
-          <div class="testi-avatar">T</div>
-          <div><strong>Thais</strong><span>Decora los eventos de su propio restaurante</span></div>
-        </div>
+    <div class="testimonios-layout">
+      <div class="gallery-strip">
+        <img src="images/galeria/casos/caso-01.jpg" alt="Decoración temática de carreras hecha por una alumna Glover" loading="lazy">
+        <img src="images/galeria/casos/caso-02.jpg" alt="Arreglo floral de globos blanco, morado y dorado hecho por una alumna Glover" loading="lazy">
+        <img src="images/galeria/casos/caso-03.jpg" alt="Mesa dulce temática de safari hecha por una alumna Glover" loading="lazy">
+        <img src="images/galeria/casos/caso-04.jpg" alt="Marco de globos rosa personalizado hecho por una alumna Glover" loading="lazy">
+        <img src="images/galeria/casos/caso-05.jpg" alt="Decoración de cumpleaños negro y dorado hecha por una alumna Glover" loading="lazy">
+        <img src="images/galeria/casos/caso-06.jpg" alt="Decoración de cumpleaños azul y dorado hecha por una alumna Glover" loading="lazy">
+        <img src="images/galeria/casos/caso-07.jpg" alt="Decoración temática de safari al aire libre hecha por una alumna Glover" loading="lazy">
+        <img src="images/galeria/casos/caso-08.jpg" alt="Decoración de globos dorada, negra y morada con número 60 hecha por una alumna Glover" loading="lazy">
+        <img src="images/galeria/casos/caso-09.jpg" alt="Decoración de baby shower en azul y crema hecha por una alumna Glover" loading="lazy">
+        <img class="gallery-strip-featured" src="images/galeria/casos/caso-10.jpg" alt="Salón completo decorado con globos rosas y dorados para un bautizo" loading="lazy">
       </div>
-      <div class="testi">
-        <p>"Hola Glovers!!! Os mando foto de mi primera decoración del año, usando por primera vez un aro. Ya sé que puede mejorar, se aceptan consejos."</p>
-        <div class="testi-who">
-          <div class="testi-avatar">E</div>
-          <div><strong>Eli</strong><span>Su primer aro de globos, recién salida del curso</span></div>
-        </div>
-      </div>
-      <div class="testi">
-        <p>"Mi primer trabajo." — así presentó su primera decoración profesional en el grupo VIP: una columna en azul y dorado con números gigantes, hecha ella sola.</p>
-        <div class="testi-who">
-          <div class="testi-avatar">B</div>
-          <div><strong>Bianca</strong><span>Primer encargo tras terminar la formación</span></div>
-        </div>
-      </div>
-      <div class="testi">
-        <p>"Mi trabajo de este finde ⚽." Un photocall completo en negro y dorado para una primera comunión, con carrito de chuches incluido.</p>
-        <div class="testi-who">
-          <div class="testi-avatar">L</div>
-          <div><strong>Lucía</strong><span>Primer evento de cliente real</span></div>
-        </div>
-      </div>
-    </div>
 
-    <div class="gallery-strip">
-      <img src="images/galeria/casos/caso-01.jpg" alt="Decoración temática de carreras hecha por una alumna Glover" loading="lazy">
-      <img src="images/galeria/casos/caso-02.jpg" alt="Arreglo floral de globos blanco, morado y dorado hecho por una alumna Glover" loading="lazy">
-      <img src="images/galeria/casos/caso-03.jpg" alt="Mesa dulce temática de safari hecha por una alumna Glover" loading="lazy">
-      <img src="images/galeria/casos/caso-04.jpg" alt="Marco de globos rosa personalizado hecho por una alumna Glover" loading="lazy">
-      <img src="images/galeria/casos/caso-05.jpg" alt="Decoración de cumpleaños negro y dorado hecha por una alumna Glover" loading="lazy">
-      <img src="images/galeria/casos/caso-06.jpg" alt="Decoración de cumpleaños azul y dorado hecha por una alumna Glover" loading="lazy">
-      <img src="images/galeria/casos/caso-07.jpg" alt="Decoración temática de safari al aire libre hecha por una alumna Glover" loading="lazy">
-      <img src="images/galeria/casos/caso-08.jpg" alt="Decoración de globos dorada, negra y morada con número 60 hecha por una alumna Glover" loading="lazy">
-      <img src="images/galeria/casos/caso-09.jpg" alt="Decoración de baby shower en azul y crema hecha por una alumna Glover" loading="lazy">
-      <img class="gallery-strip-featured" src="images/galeria/casos/caso-10.jpg" alt="Salón completo decorado con globos rosas y dorados para un bautizo" loading="lazy">
+      <div class="testi-grid">
+        <div class="testi">
+          <p>"Yo hago las decoraciones en mi restaurante. Gracias a Carolina por abrirme nuevos horizontes. Realicé el curso de Glovers y de iniciación a cameo en 2 fines de semana, y este va siendo el resultado. Poco a poco se irá cogiendo práctica y saliendo cositas nuevas."</p>
+          <div class="testi-who">
+            <div class="testi-avatar">T</div>
+            <div><strong>Thais</strong><span>Decora los eventos de su propio restaurante</span></div>
+          </div>
+        </div>
+        <div class="testi">
+          <p>"Hola Glovers!!! Os mando foto de mi primera decoración del año, usando por primera vez un aro. Ya sé que puede mejorar, se aceptan consejos."</p>
+          <div class="testi-who">
+            <div class="testi-avatar">E</div>
+            <div><strong>Eli</strong><span>Su primer aro de globos, recién salida del curso</span></div>
+          </div>
+        </div>
+        <div class="testi">
+          <p>"Mi primer trabajo." — así presentó su primera decoración profesional en el grupo VIP: una columna en azul y dorado con números gigantes, hecha ella sola.</p>
+          <div class="testi-who">
+            <div class="testi-avatar">B</div>
+            <div><strong>Bianca</strong><span>Primer encargo tras terminar la formación</span></div>
+          </div>
+        </div>
+        <div class="testi">
+          <p>"Mi trabajo de este finde ⚽." Un photocall completo en negro y dorado para una primera comunión, con carrito de chuches incluido.</p>
+          <div class="testi-who">
+            <div class="testi-avatar">L</div>
+            <div><strong>Lucía</strong><span>Primer evento de cliente real</span></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
