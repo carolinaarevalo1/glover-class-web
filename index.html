@@ -238,6 +238,18 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
   .hero-meta div{ font-size:0.85rem; color:rgba(255,255,255,0.7); }
   .hero-meta strong{ display:block; font-size:1.05rem; color:#fff; font-weight:600; font-family:"Fraunces",serif;}
 
+  /* ---------- Edición especial (aviso bajo el hero) ---------- */
+  .edicion-especial{ padding:56px 0; background:var(--paper-raise); border-bottom:1px solid var(--line); text-align:center; }
+  .edicion-especial h2{ font-size:clamp(1.7rem,4vw,2.5rem); margin:0 auto .4em; max-width:18em; }
+  .edicion-especial p.lead{ max-width:38em; margin:0 auto 22px; font-size:1.08rem; color:var(--ink-soft); }
+  .edicion-chips{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .edicion-chips span{
+    font-size:0.88rem; font-weight:600; padding:8px 16px; border-radius:999px;
+    background:color-mix(in srgb, var(--gold) 16%, transparent);
+    border:1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+    color:var(--ink);
+  }
+
   /* ---------- Section headers ---------- */
   .section-head{ max-width:640px; margin-bottom:52px; }
   .section-head h2{ font-size:clamp(1.9rem, 4vw, 2.7rem); }
@@ -673,6 +685,19 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
   </div>
 </section>
 
+<section class="edicion-especial">
+  <div class="wrap-narrow">
+    <p class="eyebrow">🎄 Por fin llegó</p>
+    <h2>La edición más especial del año</h2>
+    <p class="lead">Más de <strong>260 estudiantes</strong> han pasado ya por La Glover Class, y llega la nº 30: la navideña, la más esperada de todas. Aquí hay <strong>más práctica que teoría</strong> y, como siempre para despedir el año, <strong>damos más por menos</strong>.</p>
+    <div class="edicion-chips">
+      <span>🎈 Más práctica que teoría</span>
+      <span>🎁 Más por menos</span>
+      <span>🎄 La navideña, la más esperada</span>
+    </div>
+  </div>
+</section>
+
 <section id="que-es">
   <div class="wrap">
     <div class="section-head center">
@@ -931,7 +956,7 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
 
     <div class="stat-row">
       <div class="stat"><span class="num">29</span><span class="lbl">ediciones de La Glover Class</span></div>
-      <div class="stat"><span class="num">+250</span><span class="lbl">estudiantes de toda Galicia</span></div>
+      <div class="stat"><span class="num">+260</span><span class="lbl">estudiantes de toda Galicia han pasado por La Glover Class</span></div>
       <div class="stat"><span class="num">3</span><span class="lbl">cursos por edición</span></div>
       <div class="stat"><span class="num">4</span><span class="lbl">meses de asesoría incluida</span></div>
     </div>
