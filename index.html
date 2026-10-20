@@ -426,6 +426,20 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
   .bono{ text-align:left; }
   .bono .n{ font-family:"Fraunces",serif; font-size:1.6rem; color:var(--raspberry); display:block; margin-bottom:6px; }
   .bono p{ font-size:0.88rem; color:var(--ink-soft); margin:0; }
+  .bonos-navidad{
+    margin-top:44px; padding:32px 28px; border-radius:20px;
+    background:var(--paper-raise); border:1.5px dashed var(--forest);
+  }
+  .bonos-navidad .eyebrow{ color:var(--forest); margin:0 0 6px; }
+  .bonos-navidad h3{ font-family:"Fraunces",serif; font-size:1.5rem; margin:0 0 6px; }
+  .bonos-navidad .sub{ font-size:0.92rem; color:var(--ink-soft); margin:0 0 22px; }
+  .bonos-navidad-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+  .bono-nav{ background:var(--paper); border-radius:14px; padding:18px 14px; text-align:center; }
+  .bono-nav .ico{ font-size:2rem; display:block; margin-bottom:8px; }
+  .bono-nav p{ font-size:0.88rem; color:var(--ink-soft); margin:0; }
+  .bono-nav strong{ display:block; color:var(--ink); font-size:0.95rem; margin-bottom:4px; }
+  @media (max-width:900px){ .bonos-navidad-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:480px){ .bonos-navidad{ padding:24px 16px; } }
 
   /* ---------- Para quién ---------- */
   .quien-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
@@ -893,6 +907,19 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
       <div class="bono"><span class="n">03</span><p>Asesoría durante 4 meses para resolver dudas</p></div>
       <div class="bono"><span class="n">04</span><p>Entras en la lista de selección para formar parte del equipo de trabajo de Mesas Dulces Ourense</p></div>
       <div class="bono"><span class="n">05</span><p>Acceso a formaciones gratuitas y encuentros exclusivos para nuestros estudiantes</p></div>
+    </div>
+
+    <div class="bonos-navidad">
+      <p class="eyebrow">🎄 Solo en esta edición</p>
+      <h3>Bonus extras de Navidad: solo los incluye la edición nº 30</h3>
+      <p class="sub">Esta edición es la navideña, y por eso trae regalos que no tendrás en ninguna otra.</p>
+      <div class="bonos-navidad-grid">
+        <div class="bono-nav"><span class="ico">🔔</span><strong>Campanas</strong><p>Aprende a crear campanas navideñas con globos</p></div>
+        <div class="bono-nav"><span class="ico">❄️</span><strong>Copos de nieve</strong><p>Copos de nieve para decorar tus montajes</p></div>
+        <div class="bono-nav"><span class="ico">🎄</span><strong>Árbol de Navidad</strong><p>Tu propio árbol de Navidad hecho con globos</p></div>
+        <div class="bono-nav"><span class="ico">🎁</span><strong>Arreglos navideños</strong><p>Los arreglos de la edición serán temáticos de Navidad</p></div>
+        <div class="bono-nav"><span class="ico">✨</span><strong>Y más arreglos</strong><p>Otros arreglos que no debes perderte</p></div>
+      </div>
     </div>
   </div>
 </section>
