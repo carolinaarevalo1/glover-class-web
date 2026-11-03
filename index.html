@@ -717,6 +717,7 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
       <span>🎄 Navideña: la más esperada del año</span>
       <span>🎈 Más práctica que teoría</span>
       <span>🎁 Más por menos</span>
+      <span>🎂 Regalo de cumpleaños: precio reducido hasta el 8 nov</span>
     </div>
   </div>
 </section>
@@ -1156,28 +1157,28 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
     </div>
 
     <div id="countdown-banner" class="countdown-banner">
-      <div><strong id="cd-title">Precio de preventa activo</strong><br><span id="cd-sub">Cargando…</span></div>
-      <span id="cd-pill" class="pill pill-gold" style="color:#241620;">Hasta el 25 de octubre · 23:59h</span>
+      <div><strong id="cd-title">🎂 Mi regalo de cumpleaños: precio reducido</strong><br><span id="cd-sub">Cargando…</span></div>
+      <span id="cd-pill" class="pill pill-gold" style="color:#241620;">Hasta el 8 de noviembre · 23:59h</span>
     </div>
-    <p id="cd-note" style="margin:14px 0 44px; font-size:0.85rem; color:var(--ink-soft); text-align:center;">🎄 Preventa de la edición nº XXX del 5 al 25 de octubre (hasta las 23:59h). Del 26 de octubre al 15 de noviembre, precio de venta.</p>
+    <p id="cd-note" style="margin:14px 0 44px; font-size:0.85rem; color:var(--ink-soft); text-align:center;">🎂 Por ser el día de mi cumpleaños, te hago un regalo: precio reducido desde hoy hasta el 8 de noviembre (hasta las 23:59h). Aprovecha el regalo: te llevas más pagando menos. Del 9 al 15 de noviembre, precio de venta.</p>
 
     <div class="price-grid">
       <div class="price-card">
         <h4>01 · Decoración con globos</h4>
         <div class="amount" id="p1-price">190€</div>
-        <div class="was" id="p1-was">Desde el 26 oct.: 200€</div>
+        <div class="was" id="p1-was">Desde el 9 nov.: 200€</div>
         <p class="desc">Sábado 9:30–14:30h. La base técnica: color, estructuras, arcos y guirnaldas.</p>
       </div>
       <div class="price-card">
         <h4>02 · Arreglos y composiciones</h4>
         <div class="amount" id="p2-price">150€</div>
-        <div class="was" id="p2-was">Desde el 26 oct.: 160€</div>
+        <div class="was" id="p2-was">Desde el 9 nov.: 160€</div>
         <p class="desc">Sábado 16:00–20:30h. Columnas, flores en distorsión y bouquet maxi.</p>
       </div>
       <div class="price-card">
         <h4>03 · Detalles de lujo + emprendimiento</h4>
         <div class="amount" id="p3-price">190€</div>
-        <div class="was" id="p3-was">Desde el 26 oct.: 200€</div>
+        <div class="was" id="p3-was">Desde el 9 nov.: 200€</div>
         <p class="desc">Domingo, día completo. Negocio, estrategia de venta y práctica de lujo.</p>
       </div>
     </div>
@@ -1187,7 +1188,7 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
         <h4>Sábado completo</h4>
         <span class="discount-badge">Cursos 01 + 02</span>
         <div class="amount" id="combo-price">295€</div>
-        <div class="was" id="combo-was">Desde el 26 oct.: 320€</div>
+        <div class="was" id="combo-was">Desde el 9 nov.: 320€</div>
         <p class="desc">Decoración con globos + Arreglos y composiciones, todo el sábado.</p>
       </div>
       <div class="price-card pack">
@@ -1195,7 +1196,7 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
         <h4>Pack Completo Glover Class</h4>
         <span class="discount-badge">30% de descuento · Cursos 01+02+03</span>
         <div class="amount" id="pack-price">395€</div>
-        <div class="was" id="pack-was">Desde el 26 oct.: 420€</div>
+        <div class="was" id="pack-was">Desde el 9 nov.: 420€</div>
         <p class="desc">Sábado y domingo completos. Incluye además todo el kit físico de materiales (compresor, inflador, mandil, camiseta, tijeras, kit de bienvenida y paleta de colores).</p>
         <a href="#reserva" class="btn btn-gold" style="margin-top:8px;">Quiero el pack completo</a>
       </div>
@@ -1310,9 +1311,9 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
 
   // Preventa countdown / auto price switch
   (function(){
-    // Edición nº XXX (21 y 22 de nov): preventa 5–25 oct (hasta 23:59), venta 26 oct–15 nov.
+    // Edición nº XXX (21 y 22 de nov): regalo de cumpleaños (precio reducido, no es preventa) hasta el 8 nov (23:59), venta 9–15 nov.
     // Horario de invierno (+01:00) vigente desde el 25 de octubre de 2026.
-    const preventaEnd = new Date("2026-10-25T23:59:59+01:00");
+    const preventaEnd = new Date("2026-11-08T23:59:59+01:00");
     const ventaEnd    = new Date("2026-11-15T23:59:59+01:00");
     const now = new Date();
     const preventaActive = (preventaEnd - now) > 0;
@@ -1339,14 +1340,14 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
     const daysText = d => (d===1 ? "Queda 1 día" : "Quedan " + d + " días");
 
     if(preventaActive){
-      title.textContent = "Precio de preventa activo";
-      sub.textContent = daysText(daysLeft(preventaEnd - now)) + " de preventa antes de que suba el precio";
+      title.textContent = "🎂 Mi regalo de cumpleaños: precio reducido";
+      sub.textContent = daysText(daysLeft(preventaEnd - now)) + " para aprovechar mi regalo: te llevas más pagando menos";
       wasIds.forEach(id=>{ document.getElementById(id).style.display = 'block'; });
     } else if(ventaActive){
       title.textContent = "Inscripciones abiertas · precio de venta";
       sub.textContent = daysText(daysLeft(ventaEnd - now)) + " para inscribirte (hasta el 15 de noviembre)";
       pill.textContent = "Hasta el 15 de noviembre";
-      note.textContent = "🎄 La preventa de la edición nº XXX ya ha finalizado. Inscripciones abiertas hasta el 15 de noviembre.";
+      note.textContent = "🎄 El regalo de cumpleaños (precio reducido) ya ha finalizado. Inscripciones abiertas hasta el 15 de noviembre.";
       wasIds.forEach(id=>{ document.getElementById(id).style.display = 'none'; });
     } else {
       title.textContent = "Inscripciones cerradas";
