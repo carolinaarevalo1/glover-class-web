@@ -527,6 +527,19 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
   .price-card .amount sup{ font-size:1rem; font-weight:500; }
   .price-card .was{ font-size:0.82rem; color:var(--taupe); text-decoration:line-through; }
   .price-card .desc{ font-size:0.86rem; color:var(--ink-soft); flex:1; }
+  .code-box{ max-width:470px; margin:36px auto 0; text-align:center; }
+  .code-box label{ display:block; font-weight:600; font-size:1rem; margin-bottom:12px; }
+  .code-row{ display:flex; gap:10px; }
+  .code-row input{
+    flex:1; min-width:0; padding:13px 18px; font:inherit; font-size:1rem;
+    border:1.5px solid var(--line); border-radius:999px; background:var(--card); color:var(--ink);
+    text-transform:uppercase; letter-spacing:0.05em;
+  }
+  .code-row input::placeholder{ text-transform:none; letter-spacing:0; color:var(--taupe); }
+  .code-row input:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
+  .code-msg{ margin:12px 0 0; min-height:1.4em; font-size:0.92rem; line-height:1.45; }
+  .code-msg.ok{ color:var(--forest); font-weight:600; }
+  .code-msg.err{ color:var(--raspberry-deep); }
   .combo-grid{ display:grid; grid-template-columns:1fr 1.3fr; gap:20px; }
   @media (max-width:860px){ .combo-grid{ grid-template-columns:1fr; } }
   .price-card.pack{
@@ -1201,6 +1214,17 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
         <a href="#reserva" class="btn btn-gold" style="margin-top:8px;">Quiero el pack completo</a>
       </div>
     </div>
+
+    <div id="code-box" class="code-box">
+      <form id="code-form" autocomplete="off" novalidate>
+        <label for="code-input">🎁 ¿Tienes un código de regalo?</label>
+        <div class="code-row">
+          <input id="code-input" type="text" maxlength="30" placeholder="Escribe tu código" autocapitalize="characters" autocomplete="off" spellcheck="false" aria-describedby="code-msg">
+          <button type="submit" class="btn btn-primary" style="padding:12px 22px;">Aplicar</button>
+        </div>
+        <p id="code-msg" class="code-msg" aria-live="polite"></p>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -1318,6 +1342,7 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
     const now = new Date();
     const preventaActive = (preventaEnd - now) > 0;
     const ventaActive    = !preventaActive && (ventaEnd - now) > 0;
+    document.getElementById('precios').dataset.phase = preventaActive ? 'preventa' : (ventaActive ? 'venta' : 'cerrado');
 
     const banner = document.getElementById('countdown-banner');
     const title = document.getElementById('cd-title');
@@ -1356,6 +1381,45 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
       note.style.display = 'none';
       wasIds.forEach(id=>{ document.getElementById(id).style.display = 'none'; });
     }
+  })();
+
+  // Código de regalo: deja el Pack Completo al precio del código (solo cambia el precio mostrado;
+  // el pago online sigue siendo la señal fija de 70€ y el resto se abona el día de la formación).
+  (function(){
+    const CODES = { "CAROL395": { pack: 395 } };   // añade aquí más códigos: "OTRO": { pack: 380 }
+    const SENAL = 70;
+
+    const box = document.getElementById('code-box');
+    if(document.getElementById('precios').dataset.phase === 'cerrado'){ box.style.display = 'none'; return; }
+
+    const input = document.getElementById('code-input');
+    const msg = document.getElementById('code-msg');
+    const packPrice = document.getElementById('pack-price');
+    const packWas = document.getElementById('pack-was');
+    const basePack = parseInt(packPrice.textContent, 10);   // precio que se muestra ahora (395 o 420)
+
+    const normalize = s => s.toUpperCase().replace(/[^A-Z0-9]/g, '');   // acepta "carol395", "CAROL395€", "Carol 395"
+    const show = (text, ok) => { msg.textContent = text; msg.className = 'code-msg ' + (ok ? 'ok' : 'err'); };
+
+    function apply(raw){
+      const code = CODES[normalize(raw)];
+      if(!code){ show('Ese código no es válido. Revísalo e inténtalo de nuevo.', false); return; }
+      if(basePack <= code.pack){ show('¡El Pack Completo ya está a ' + basePack + '€ ahora mismo! No necesitas el código.', true); return; }
+      packPrice.textContent = code.pack + '€';
+      packWas.textContent = 'Precio de venta: ' + basePack + '€';
+      packWas.style.display = 'block';
+      show('🎂 Código aplicado: el Pack Completo queda en ' + code.pack + '€. Pagas ' + SENAL + '€ de señal ahora y ' + (code.pack - SENAL) + '€ el día de la formación.', true);
+    }
+
+    document.getElementById('code-form').addEventListener('submit', e => {
+      e.preventDefault();
+      if(!input.value.trim()){ show('Escribe tu código para aplicarlo.', false); return; }
+      apply(input.value);
+    });
+
+    // Enlace compartible: carolinaarevaloc.com/?codigo=CAROL395 lo aplica solo
+    const fromUrl = new URLSearchParams(location.search).get('codigo');
+    if(fromUrl){ input.value = fromUrl; apply(fromUrl); }
   })();
 </script>
 
