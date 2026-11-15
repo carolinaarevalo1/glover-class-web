@@ -538,6 +538,8 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
   .code-row input::placeholder{ text-transform:none; letter-spacing:0; color:var(--taupe); }
   .code-row input:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
   .code-msg{ margin:12px 0 0; min-height:1.4em; font-size:0.92rem; line-height:1.45; }
+  .code-ask{ margin:18px 0 0; padding-top:16px; border-top:1px solid var(--line); font-size:0.88rem; line-height:1.5; color:var(--ink-soft); }
+  .code-ask a{ color:var(--raspberry); font-weight:600; }
   .code-msg.ok{ color:var(--forest); font-weight:600; }
   .code-msg.err{ color:var(--raspberry-deep); }
   .combo-grid{ display:grid; grid-template-columns:1fr 1.3fr; gap:20px; }
@@ -1224,6 +1226,7 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
         </div>
         <p id="code-msg" class="code-msg" aria-live="polite"></p>
       </form>
+      <p class="code-ask">🎂 ¿Aún no tienes el descuento de regalo que Carolina ha dado por el día de su cumpleaños? <a id="code-wa" href="#" target="_blank" rel="noopener">Solicítalo por WhatsApp</a> para que podamos aplicártelo. Es exclusivo para esta edición: ¡no lo dejes escapar!</p>
     </div>
   </div>
 </section>
@@ -1332,6 +1335,7 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
 
   document.getElementById('wa-link').href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent("Hola Carol, quiero inscribirme en el curso de globos");
   document.getElementById('pay-btn').href = PAYMENT_LINK;
+  document.getElementById('code-wa').href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent("Hola Carol, quiero solicitar el descuento de regalo por tu cumpleaños para la edición 30");
 
   // Preventa countdown / auto price switch
   (function(){
@@ -1383,10 +1387,18 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
     }
   })();
 
-  // Código de regalo: deja el Pack Completo al precio del código (solo cambia el precio mostrado;
-  // el pago online sigue siendo la señal fija de 70€ y el resto se abona el día de la formación).
+  // Códigos de regalo: cada código deja el/los curso(s) correspondiente(s) a su precio de regalo
+  // (solo cambia el precio mostrado; el pago online sigue siendo la señal fija de 70€ y el resto
+  // se abona el día de la formación). Se pueden aplicar varios códigos a la vez.
   (function(){
-    const CODES = { "CAROL395": { pack: 395 } };   // añade aquí más códigos: "OTRO": { pack: 380 }
+    const NAMES = { p1:'Curso 01', p2:'Curso 02', p3:'Curso 03', combo:'el Sábado completo', pack:'el Pack Completo' };
+    const CODES = {
+      "CAROL190": { p1: 190, p3: 190 },   // sirve para el curso 01 y para el curso 03 (ambos 190€)
+      "CAROL150": { p2: 150 },
+      "CAROL295": { combo: 295 },
+      "CAROL395": { pack: 395 }
+      // añade aquí más códigos: "OTRO": { pack: 380 }
+    };
     const SENAL = 70;
 
     const box = document.getElementById('code-box');
@@ -1394,21 +1406,30 @@ src="https://www.facebook.com/tr?id=1099224738439655&ev=PageView&noscript=1"
 
     const input = document.getElementById('code-input');
     const msg = document.getElementById('code-msg');
-    const packPrice = document.getElementById('pack-price');
-    const packWas = document.getElementById('pack-was');
-    const basePack = parseInt(packPrice.textContent, 10);   // precio que se muestra ahora (395 o 420)
+    const base = {};                                   // precio que se muestra ahora (preventa o venta)
+    Object.keys(NAMES).forEach(k => { base[k] = parseInt(document.getElementById(k + '-price').textContent, 10); });
 
-    const normalize = s => s.toUpperCase().replace(/[^A-Z0-9]/g, '');   // acepta "carol395", "CAROL395€", "Carol 395"
+    const normalize = s => s.toUpperCase().replace(/[^A-Z0-9]/g, '');   // acepta "carol190", "CAROL190€", "Carol 190"
     const show = (text, ok) => { msg.textContent = text; msg.className = 'code-msg ' + (ok ? 'ok' : 'err'); };
+    const join = list => list.length < 2 ? list.join('') : list.slice(0, -1).join(', ') + ' y ' + list[list.length - 1];
 
     function apply(raw){
       const code = CODES[normalize(raw)];
       if(!code){ show('Ese código no es válido. Revísalo e inténtalo de nuevo.', false); return; }
-      if(basePack <= code.pack){ show('¡El Pack Completo ya está a ' + basePack + '€ ahora mismo! No necesitas el código.', true); return; }
-      packPrice.textContent = code.pack + '€';
-      packWas.textContent = 'Precio de venta: ' + basePack + '€';
-      packWas.style.display = 'block';
-      show('🎂 Código aplicado: el Pack Completo queda en ' + code.pack + '€. Pagas ' + SENAL + '€ de señal ahora y ' + (code.pack - SENAL) + '€ el día de la formación.', true);
+      const done = [], already = [];
+      Object.keys(code).forEach(k => {
+        const price = code[k];
+        if(base[k] <= price){ already.push(NAMES[k] + ' (' + base[k] + '€)'); return; }
+        document.getElementById(k + '-price').textContent = price + '€';
+        const was = document.getElementById(k + '-was');
+        was.textContent = 'Precio de venta: ' + base[k] + '€';
+        was.style.display = 'block';
+        done.push(NAMES[k] + ' queda en ' + price + '€');
+      });
+      if(!done.length){ show('No necesitas el código: ahora mismo ' + join(already) + (already.length > 1 ? ' ya tienen' : ' ya tiene') + ' ese precio.', true); return; }
+      const precio = code[Object.keys(code)[0]];   // todos los cursos de un mismo código tienen el mismo precio
+      const resto = precio - SENAL;
+      show('🎂 Código aplicado: ' + join(done) + '. Pagas ' + SENAL + '€ de señal ahora y ' + resto + '€ el día de la formación' + (done.length > 1 ? ' por cada curso.' : '.'), true);
     }
 
     document.getElementById('code-form').addEventListener('submit', e => {
